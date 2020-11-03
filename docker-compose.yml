@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  # SETUP GO SERVER CONTAINER
+  server:
+    build: ./server/src
+    expose:
+      - ${APP_SERVER_PORT}
+    environment:
+      API_HOST: ${API_HOST}
+      APP_SERVER_PORT: ${APP_SERVER_PORT}
+    ports:
+      - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
+    volumes:
+      - ./server/src:/route-finder/src
+    command: go run main.go
+
+  # SETUP REACT CLIENT CONTAINTER
+  client:
+    tty: true
+    build: ./client
+    environment:
+      - REACT_APP_PORT=${REACT_APP_PORT}
+    expose:
+      - ${REACT_APP_PORT}
+    ports:
+      - ${REACT_APP_PORT}:${REACT_APP_PORT}
+    volumes:
+      - ./client/src:/srv/app/route-finder-client/src
+      - ./client/public:/srv/app/route-finder-client/public
+    links:
+      - server
+    command: yarn start
