@@ -8,16 +8,10 @@ A REST API that takes the input parameters for home address location and destina
 - [Docker Desktop](https://www.docker.com/products/docker-desktop) (if you want to run the application in a docker container)
 - [`jq`] (optional)(https://stedolan.github.io/jq/) tool for formatted json output
 
-## Clone the repository on your computer
-
-```bash
-git clone https://github.com/ioanzicu/route-search-go.git
-```
-
 ## Install dependencies:
 
 ```bash
-cd go-route-finder/src
+cd server/src
 go get
 go build
 ```
@@ -78,10 +72,10 @@ forget to change it in the `main.go` file too.
 [`jq`](https://stedolan.github.io/jq/) command for formatted json output
 
 ```bash
-curl -v "localhost:3000/routes?src=13.388860,52.517037&dst=13.397634,52.529407&dst=13.428555,52.523219" | jq
+curl -v "localhost:8080/routes?src=13.388860,52.517037&dst=13.397634,52.529407&dst=13.428555,52.523219" | jq
 ```
 
-- `src=13.388860,52.517037`- represents the home address of the customer
+- `src=13.388860,52.517037`- represents the home address of the customer.
 
   **Note**: the `src` parameter should contain the longitude and latitude in the float format. Only one `src` parameter is allowed.
 
@@ -90,7 +84,7 @@ curl -v "localhost:3000/routes?src=13.388860,52.517037&dst=13.397634,52.529407&d
   There can be more than one `dst` parameter provided separated by `&` symbol. Example: `dst=13.428555,52.523219&dst=13.342435,54.546675`.
 
 The output will be a json object with fields: `source` and `routes`.
-`routes` field hold a sorted by duration and/or distance list of destinations.
+`routes` field holds a sorted by duration and/or distance list of destinations.
 
 Example Output:
 
