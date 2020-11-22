@@ -52,6 +52,12 @@ Example:
 docker-compose exec server sh
 ```
 
+## Shut down the docker-compose containers
+
+```bash
+docker-compose down
+```
+
 This command will open the prompt command line that start with `#`.
 
 To exit from the container shell, enter `exit`.
