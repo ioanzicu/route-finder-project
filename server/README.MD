@@ -57,13 +57,13 @@ docker run -p [host port]:[exposed container port] go-route-finder
 Example:
 
 ```bash
-docker run -p 8080:8080 go-route-finder
+docker run -p 8000:8000 go-route-finder
 ```
 
 To run the container in the detached mode use `-d` flag
 
 ```bash
-docker run -d -p 8080:8080 go-route-finder
+docker run -d -p 8000:8000 go-route-finder
 ```
 
 You can change the exposed container port number, but if you do so, do not
@@ -74,7 +74,7 @@ forget to change it in the `main.go` file too.
 [`jq`](https://stedolan.github.io/jq/) command for formatted json output
 
 ```bash
-curl -v "localhost:8080/routes?src=13.388860,52.517037&dst=13.397634,52.529407&dst=13.428555,52.523219" | jq
+curl -v "localhost:8000/routes?src=13.388860,52.517037&dst=13.397634,52.529407&dst=13.428555,52.523219" | jq
 ```
 
 - `src=13.388860,52.517037` - represents the home address of the customer.
