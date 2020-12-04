@@ -17,6 +17,7 @@ services:
 
   # SETUP REACT CLIENT CONTAINTER
   client:
+    env_file: ./client/.env.local
     tty: true
     build: ./client
     environment:

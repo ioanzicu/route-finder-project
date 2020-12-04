@@ -80,7 +80,7 @@ export default function Form() {
     setLoading(false);
   };
 
-  // localhost:8080/routes?src=13.388860,52.517037&dst=13.397634,52.529407&dst=13.428555,52.523219
+  // localhost:8000/routes?src=13.388860,52.517037&dst=13.397634,52.529407&dst=13.428555,52.523219
   const getRoutes = () => {
     let destinaions: string = "";
     inputList.map(
@@ -90,7 +90,7 @@ export default function Form() {
 
     // String of format {longitude},{latitude}
     // http://project-osrm.org/docs/v5.23.0/api/#general-options
-    const apiUrl = `http://localhost:8080/routes?src=${sourceLongitude},${sourceLatitude}${destinaions}`;
+    const apiUrl = `http://localhost:8000/routes?src=${sourceLongitude},${sourceLatitude}${destinaions}`;
 
     fetchData(apiUrl);
   };
