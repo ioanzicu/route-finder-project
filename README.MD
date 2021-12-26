@@ -10,6 +10,10 @@ The Route Finder project consists of two separated applications: Front End (Reac
 
 ![Route Finder Project Architecture Overview](./route-finder-architcture.png)
 
+Child repositories:
+- https://github.com/ioanzicu/go-route-finder
+- https://github.com/ioanzicu/route-finder-front-end
+
 ### Prerequisites:
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
